@@ -24,6 +24,17 @@ const getOneVideojuego = async(req, res) => {
     }
 }
 
+const getRandomVideojuego = async(req, res) => {
+    try {
+        const count = await Videojuego.countDocuments();
+        const random = Math.floor(Math.random() * count);
+        const videojuego = await Videojuego.findOne().skip(random);
+        res.status(200).json(videojuego)
+    } catch (err) {
+        res.status(500).json({message: "Error al obtener el videojuego", error: err.message})
+    }
+}
+
 const putOneVideojuego = async(req, res) => {
     try {
         const {id} = req.params;
@@ -65,4 +76,4 @@ module.exports = {
 }
     */
 
-export default { getAllVideojuegos, getOneVideojuego, putOneVideojuego, deleteOneVideojuego, createVideojuego }
+export default { getAllVideojuegos, getOneVideojuego, putOneVideojuego, deleteOneVideojuego, createVideojuego, getRandomVideojuego }

@@ -6,6 +6,8 @@ router.use(express.json());
 
 router.get('/videojuegos', videojuegoController.getAllVideojuegos)
 
+router.get('/videojuegos/random', videojuegoController.getRandomVideojuego)
+
 router.get('/videojuegos/:id', videojuegoController.getOneVideojuego)
 
 router.put('/videojuegos/:id', videojuegoController.putOneVideojuego)
