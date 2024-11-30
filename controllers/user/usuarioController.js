@@ -32,7 +32,7 @@ const crearUsuario = async(req, res) => {
             email: email,
             contrasena: hashedPassword,
             telefono: telefono,
-            rol: rol,
+            rol: [new ObjectId('673207e28217039c5e4c4c24')],
             fecha_creacion: new Date(),
             estado: true,
             nombre_usuario: nombre_usuario,
