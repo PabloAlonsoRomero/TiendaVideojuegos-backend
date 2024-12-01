@@ -49,6 +49,19 @@ const crearUsuario = async(req, res) => {
     }
 }
 
+const getBibliotecaUsuario = async(req, res) => {
+    try {
+        const { userId } = req.body;
+        const usuario = await Usuario.findById(userId);
+        if (!usuario) {
+            return res.status(400).json({message: "Usuario no encontrado"})
+        }
+        res.status(200).json({message: "Biblioteca obtenida exitosamente", biblioteca: usuario.biblioteca})
+    } catch (err) {
+        res.status(500).json({message: "Error al obtener biblioteca", error: err.message})
+    }
+}
+
 /*
 module.exports = {
     inicioSesion,
@@ -56,4 +69,4 @@ module.exports = {
 }
     */
 
-export default {inicioSesion, crearUsuario}
+export default {inicioSesion, crearUsuario, getBibliotecaUsuario}
