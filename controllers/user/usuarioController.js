@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import Usuario from "../../models/user/usuario.js";
 import { hashPassword, comparePassword } from '../../utils/utils.js';
 
@@ -32,7 +33,7 @@ const crearUsuario = async(req, res) => {
             email: email,
             contrasena: hashedPassword,
             telefono: telefono,
-            rol: [new ObjectId('673207e28217039c5e4c4c24')],
+            rol: [new mongoose.Types.ObjectId('673207e28217039c5e4c4c24')],
             fecha_creacion: new Date(),
             estado: true,
             nombre_usuario: nombre_usuario,
@@ -44,7 +45,7 @@ const crearUsuario = async(req, res) => {
 
         res.status(200).json({message: "Usuario creado exitosamente", usuario: newUsuario })
     } catch (err) {
-
+        res.status(500).json({message: "Error al crear usuario", error: err.message})
     }
 }
 
