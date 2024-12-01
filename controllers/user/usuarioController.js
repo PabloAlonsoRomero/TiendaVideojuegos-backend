@@ -17,7 +17,7 @@ const inicioSesion = async(req, res) => {
             return res.status(400).json({message: "Contraseña incorrecta"})
         }
         if (isLogged) {
-            return res.status(200).json({userID: usuario._id, nombreUsuario: usuario.nombre_usuario, message: "Inicio de sesión exitoso"})
+            return res.status(200).json({userID: usuario._id, nombreUsuario: usuario.nombre_usuario, admin: usuario.admin, message: "Inicio de sesión exitoso"})
         }
     } catch (err) {
         res.status(500).json({message: "Error al iniciar sesión", error: err.message})
