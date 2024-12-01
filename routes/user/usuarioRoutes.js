@@ -6,7 +6,7 @@ router.post('/usuario/login', usuarioController.inicioSesion)
 
 router.post('/usuario/registro', usuarioController.crearUsuario)
 
-router.get('/usuario/biblioteca', usuarioController.getBibliotecaUsuario)
+router.post('/usuario/biblioteca', usuarioController.getBibliotecaUsuario)
 
 // module.exports = router;
 
