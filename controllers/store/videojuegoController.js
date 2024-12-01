@@ -16,8 +16,8 @@ const getAllVideojuegos = async(req, res) => {
 
 const getOneVideojuego = async(req, res) => {
     try {
-        const {id} = req.params;
-        const videojuego = await Videojuego.findById(id);
+        const { _id } = req.body;
+        const videojuego = await Videojuego.findById( _id );
         res.status(200).json(videojuego) 
     } catch (err) {
         res.status(500).json({message: "Error al obtener el videojuego", error: err.message})
