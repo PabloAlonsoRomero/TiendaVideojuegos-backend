@@ -26,7 +26,6 @@ import plataformaRoutes from './routes/store/plataformaRoutes.js';
 import videojuegoRoutes from './routes/store/videojuegoRoutes.js';
 
 // Routes user
-import rolRoutes from './routes/user/rolRoutes.js';
 import usuarioRoutes from './routes/user/usuarioRoutes.js';
 
 
@@ -63,7 +62,6 @@ app.use(plataformaRoutes)
 app.use(videojuegoRoutes)
 
 // App use user routes
-app.use(rolRoutes)
 app.use(usuarioRoutes)
 
 // Ruta para listar endpoints
