@@ -18,11 +18,10 @@ const UsuarioSchema = new Schema({
         type: String,
         required: true
     },
-    rol: [{
-        type: Schema.Types.ObjectId,
-        ref: 'roles',
+    admin: {
+        type: Boolean,
         required: true
-    }],
+    },
     fecha_creacion: {
         type: Date,
         required: true
