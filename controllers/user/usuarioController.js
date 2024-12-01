@@ -62,6 +62,22 @@ const getBibliotecaUsuario = async(req, res) => {
     }
 }
 
+const verificarAdmin = async (req, res) => {
+    try {
+        const { userId } = req.body;
+        const usuario = await Usuario.findById(userId);
+        if (!usuario) {
+            return res.status(400).json({message: "Usuario no encontrado"})
+        }
+        if (!usuario.admin) {
+            return res.status(200).json({message: "Usuario no es administrador", admin: usuario.admin})
+        }
+        res.status(200).json({message: "Usuario es administrador", admin: usuario.admin})
+    } catch (err) {
+        res.status(500).json({message: "Error al verificar administrador", error: err.message})
+    }
+}
+
 /*
 module.exports = {
     inicioSesion,
@@ -69,4 +85,4 @@ module.exports = {
 }
     */
 
-export default {inicioSesion, crearUsuario, getBibliotecaUsuario}
+export default {inicioSesion, crearUsuario, getBibliotecaUsuario, verificarAdmin}
