@@ -17,7 +17,11 @@ const getAllVideojuegos = async(req, res) => {
 const getOneVideojuego = async(req, res) => {
     try {
         const { _id } = req.body;
-        const videojuego = await Videojuego.findById( _id );
+        const videojuego = await Videojuego.findById( _id )
+        .populate('desarrolladora', 'nombre -_id')
+        .populate('distribuidor', 'nombre -_id')
+        .populate('genero', 'nombre -_id')
+        ;
         res.status(200).json(videojuego) 
     } catch (err) {
         res.status(500).json({message: "Error al obtener el videojuego", error: err.message})
