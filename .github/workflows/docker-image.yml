@@ -19,7 +19,7 @@ jobs:
               run: docker build -t pabloalonso24/proyecto-mongo-tiendavideojuegos:${{ github.sha }} .
 
             - name: Tag Latest
-              run: docker tag pabloalonso24/proyecto-mongo-tiendavideojuegos:${{ github.sha }}pabloalonso24/proyecto-mongo-tiendavideojuegos:latest
+              run: docker tag pabloalonso24/proyecto-mongo-tiendavideojuegos:${{ github.sha }} pabloalonso24/proyecto-mongo-tiendavideojuegos:latest
 
             - name: Push Docker Image
               run: |
