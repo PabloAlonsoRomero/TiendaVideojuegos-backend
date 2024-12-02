@@ -13,8 +13,5 @@ RUN npm install
 # Copiar archivos de mi local al contenedor
 COPY . .
 
-# Compilar aplicacion
-RUN npm run build
-
 # COmando de inicio de contenedor
 CMD ["node", "app.js"]
