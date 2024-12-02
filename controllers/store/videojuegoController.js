@@ -21,6 +21,7 @@ const getOneVideojuego = async(req, res) => {
         .populate('desarrollador', 'nombre -_id')
         .populate('distribuidor', 'nombre -_id')
         .populate('genero', 'nombre -_id')
+        .populate('plataformas','nombre -_id')
         ;
         res.status(200).json(videojuego) 
     } catch (err) {
