@@ -19,7 +19,7 @@ const VideojuegoSchema = new Schema({
         type: Schema.Types.Decimal128,
         required: true
     },
-    desarrolladora: {
+    desarrollador: {
         type: Schema.Types.ObjectId,
         ref: 'Desarrolladora',
         required: true
@@ -56,7 +56,7 @@ const VideojuegoSchema = new Schema({
     }
 })
 
-const Videojuego = mongoose.model('videojuegos', VideojuegoSchema);
+const Videojuego = mongoose.model('videojuegos', VideojuegoSchema, 'videojuegos');
 
 //module.exports = Videojuego;
 export default Videojuego;

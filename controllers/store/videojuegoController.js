@@ -5,7 +5,7 @@ const getAllVideojuegos = async(req, res) => {
     try {
         const videojuegos = await Videojuego.find()
         .populate('genero', 'nombre -_id')
-        .populate('desarrolladora', 'nombre -_id')
+        .populate('desarrollador', 'nombre -_id')
         .populate('distribuidor', 'nombre -_id')
         .populate('plataformas', 'nombre -_id');
         res.status(200).json(videojuegos)
@@ -18,7 +18,7 @@ const getOneVideojuego = async(req, res) => {
     try {
         const { _id } = req.body;
         const videojuego = await Videojuego.findById( _id )
-        .populate('desarrolladora', 'nombre -_id')
+        .populate('desarrollador', 'nombre -_id')
         .populate('distribuidor', 'nombre -_id')
         .populate('genero', 'nombre -_id')
         ;

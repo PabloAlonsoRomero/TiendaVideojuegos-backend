@@ -8,7 +8,7 @@ const DesarrolladoraSchema = new Schema({
     }
 })
 
-const Desarrolladora = mongoose.model('Desarrolladora', DesarrolladoraSchema);
+const Desarrolladora = mongoose.model('Desarrolladora', DesarrolladoraSchema, 'desarrolladoras');
 
 // module.exports = Desarrolladora;
 
