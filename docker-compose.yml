@@ -18,6 +18,11 @@ services:
     container_name: backendVideojuegos
     ports:
       - "3000:3000"
+    environment:
+      - DB_USER=proyectomongodb74
+      - DB_PASSWORD=zNXCNkjD1crJ45DK
+      - DB_NAME=tienda
+      - DB_CLUSTER=cluster0.gfwrr.mongodb.net
     depends_on:
       mongodb:
         condition: service_healthy
