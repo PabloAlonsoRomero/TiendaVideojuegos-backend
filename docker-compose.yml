@@ -6,12 +6,6 @@ services:
       - "27017:27017"
     volumes:
       - mongo_data:/data/db
-    healthcheck:
-      test: ["CMD", "mongo", "--eval", "db.adminCommand('ping')"]
-      interval: 20s
-      timeout: 10s
-      retries: 5
-      start_period: 10s
 
   backendVideojuegos:
     image: pabloalonso24/proyecto-mongo-tiendavideojuegos:latest
