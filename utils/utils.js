@@ -1,11 +1,11 @@
-import bcryptjs from 'bcryptjs';
+import bcrypt from 'bcryptjs';
 
 const hashPassword = (password) => {
-    return bcryptjs.hashSync(password, 10);
+    return bcrypt.hashSync(password, 10);
 }
 
 const comparePassword = (password, hash) => {
-    return bcryptjs.compareSync(password, hash);
+    return bcrypt.compareSync(password, hash);
 }
 
 /*
