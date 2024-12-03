@@ -8,9 +8,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Instalar los Node Modules
-RUN npm install
-
-RUN npm install bcryptjs
+RUN npm install --build-from-source
 
 # Copiar archivos de mi local al contenedor
 COPY . .
