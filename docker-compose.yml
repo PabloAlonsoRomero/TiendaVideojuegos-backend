@@ -8,9 +8,9 @@ services:
       - mongo_data:/data/db
     healthcheck:
       test: ["CMD", "mongo", "--eval", "db.runCommand({ ping: 1 })"]
-      interval: 60s
+      interval: 30s
       timeout: 10s
-      retries: 5
+      retries: 3
 
   backendVideojuegos:
     image: pabloalonso24/proyecto-mongo-tiendavideojuegos:latest
