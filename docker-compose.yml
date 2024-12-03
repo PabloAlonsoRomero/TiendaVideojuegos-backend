@@ -7,10 +7,10 @@ services:
     volumes:
       - mongo_data:/data/db
     healthcheck:
-      test: ["CMD", "mongo", "--eval", "db.runCommand({ ping: 1 })"]
-      interval: 30s
+      test: ["CMD-SHELL", "until nc -z -v -w30 localhost 27017; do echo 'Waiting for MongoDB...'; sleep 5; done"]
+      interval: 20s
       timeout: 10s
-      retries: 3
+      retries: 5
 
   backendVideojuegos:
     image: pabloalonso24/proyecto-mongo-tiendavideojuegos:latest
