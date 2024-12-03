@@ -1,0 +1,31 @@
+services:
+  mongodb:
+    image: mongodb
+    container_name: mongo_container
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://lobalhost:3000 || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  backendVideojuegos:
+    image: pabloalonso24/proyecto-mongo-tiendavideojuegos:latest
+    container_name: backendVideojuegos
+    ports:
+      - "3000:3000"
+    environment:
+      DB_USER: proyectomongodb74
+      DB_PASSWORD: zNXCNkjD1crJ45DK
+      DB_NAME: tienda
+      DB_CLUSTER: cluster0.gfwrr.mongodb.net
+      MONGO_URL: mongodb+srv://${DB_USER}:${DB_PASSWORD}@${DB_CLUSTER}/${DB_NAME}?retryWrites=true&w=majority
+    depends_on:
+      mongodb:
+        condition: service_healthy
+
+volumes:
+  mongo_data:
