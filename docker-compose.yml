@@ -23,9 +23,6 @@ services:
       - DB_PASSWORD=zNXCNkjD1crJ45DK
       - DB_NAME=tienda
       - DB_CLUSTER=cluster0.gfwrr.mongodb.net
-    depends_on:
-      mongodb:
-        condition: service_healthy
 
 volumes:
   mongo_data:
