@@ -4,8 +4,6 @@ services:
     container_name: mongo_container
     ports:
       - "27017:27017"
-    volumes:
-      - mongo_data:/data/db
 
   backendVideojuegos:
     image: pabloalonso24/proyecto-mongo-tiendavideojuegos:latest
@@ -17,6 +15,3 @@ services:
       - DB_PASSWORD=zNXCNkjD1crJ45DK
       - DB_NAME=tienda
       - DB_CLUSTER=cluster0.gfwrr.mongodb.net
-
-volumes:
-  mongo_data:
