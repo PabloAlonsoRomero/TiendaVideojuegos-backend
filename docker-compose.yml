@@ -1,10 +1,4 @@
 services:
-  mongodb:
-    image: mongo:latest
-    container_name: mongo_container
-    ports:
-      - "27017:27017"
-
   backendVideojuegos:
     image: pabloalonso24/proyecto-mongo-tiendavideojuegos:latest
     container_name: backendVideojuegos
